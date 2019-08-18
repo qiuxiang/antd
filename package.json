@@ -1,0 +1,11 @@
+{
+  "name": "antd",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "copy 'node_modules/antd/**/*.d.ts' ."
+  },
+  "devDependencies": {
+    "antd": "^3.22.0",
+    "copy": "^0.3.2"
+  }
+}
