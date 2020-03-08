@@ -25,9 +25,9 @@ export interface PopconfirmLocale {
 declare class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     static defaultProps: {
         transitionName: string;
-        placement: "left" | "right" | "top" | "bottom" | "bottomRight" | "topLeft" | "topRight" | "bottomLeft" | "leftTop" | "leftBottom" | "rightTop" | "rightBottom" | undefined;
-        trigger: "click" | "focus" | "contextMenu" | "hover" | undefined;
-        okType: "link" | "default" | "dashed" | "primary" | "ghost" | "danger" | undefined;
+        placement: "bottom" | "left" | "right" | "top" | "bottomRight" | "topLeft" | "topRight" | "bottomLeft" | "leftTop" | "leftBottom" | "rightTop" | "rightBottom" | undefined;
+        trigger: string | undefined;
+        okType: "link" | "dashed" | "default" | "primary" | "ghost" | "danger" | undefined;
         icon: JSX.Element;
         disabled: boolean;
     };

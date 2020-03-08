@@ -10,12 +10,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             showInfo: boolean;
         };
         showRemoveIcon: boolean;
+        showDownloadIcon: boolean;
         showPreviewIcon: boolean;
         previewFile: typeof previewImage;
     };
     componentDidUpdate(): void;
-    handlePreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement, Event>) => void;
-    handleClose: (file: UploadFile) => void;
-    renderUploadList: ({ getPrefixCls }: ConfigConsumerProps) => JSX.Element;
+    handlePreview: (file: UploadFile<any>, e: React.SyntheticEvent<HTMLElement, Event>) => void;
+    handleDownload: (file: UploadFile<any>) => void;
+    handleClose: (file: UploadFile<any>) => void;
+    handleIconRender: (file: UploadFile<any>) => {} | null | undefined;
+    handleActionIconRender: (customIcon: React.ReactNode, callback: () => void, title?: string | undefined) => JSX.Element;
+    renderUploadList: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element;
     render(): JSX.Element;
 }

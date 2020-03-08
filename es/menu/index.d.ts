@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { ItemGroup } from 'rc-menu';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { SiderContextProps } from '../layout/Sider';
 import { MenuTheme } from './MenuContext';
+export { MenuItemGroupProps } from 'rc-menu/es/MenuItemGroup';
 export interface SelectParam {
     key: string;
     keyPath: Array<string>;
@@ -31,8 +33,9 @@ export interface MenuProps {
     onDeselect?: (param: SelectParam) => void;
     onClick?: (param: ClickParam) => void;
     style?: React.CSSProperties;
-    openAnimation?: string | Object;
-    openTransitionName?: string | Object;
+    openAnimation?: string;
+    openTransitionName?: string;
+    motion?: Object;
     className?: string;
     prefixCls?: string;
     multiple?: boolean;
@@ -52,13 +55,11 @@ export interface MenuState {
     switchingModeFromInline: boolean;
     inlineOpenKeys: string[];
     prevProps: InternalMenuProps;
-    mounted: boolean;
 }
 export default class Menu extends React.Component<MenuProps, {}> {
-    static Divider: any;
+    static Divider: React.FC<import("rc-menu/lib/Divider").DividerProps>;
     static Item: typeof Item;
     static SubMenu: typeof SubMenu;
-    static ItemGroup: any;
+    static ItemGroup: typeof ItemGroup;
     render(): JSX.Element;
 }
-export {};

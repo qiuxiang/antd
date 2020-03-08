@@ -6,7 +6,7 @@
     "build": "copy 'node_modules/antd/**/*.d.ts' ."
   },
   "devDependencies": {
-    "antd": "^3.22.0",
+    "antd": "^4.0.1",
     "copy": "^0.3.2"
   }
 }

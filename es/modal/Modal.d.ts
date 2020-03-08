@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import useModal from './useModal';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import { ConfigConsumerProps } from '../config-provider';
 export declare const destroyFns: Array<() => void>;
@@ -64,12 +64,10 @@ export interface ModalFuncProps {
     cancelButtonProps?: NativeButtonProps;
     centered?: boolean;
     width?: string | number;
-    iconClassName?: string;
     okText?: React.ReactNode;
     okType?: ButtonType;
     cancelText?: React.ReactNode;
     icon?: React.ReactNode;
-    iconType?: string;
     mask?: boolean;
     maskClosable?: boolean;
     zIndex?: number;
@@ -83,50 +81,26 @@ export interface ModalFuncProps {
     transitionName?: string;
     maskTransitionName?: string;
 }
-export declare type ModalFunc = (props: ModalFuncProps) => {
-    destroy: () => void;
-    update: (newConfig: ModalFuncProps) => void;
-};
 export interface ModalLocale {
     okText: string;
     cancelText: string;
     justOkText: string;
 }
 export default class Modal extends React.Component<ModalProps, {}> {
-    static info: ModalFunc;
-    static success: ModalFunc;
-    static error: ModalFunc;
-    static warn: ModalFunc;
-    static warning: ModalFunc;
-    static confirm: ModalFunc;
     static destroyAll: () => void;
+    static useModal: typeof useModal;
     static defaultProps: {
         width: number;
         transitionName: string;
         maskTransitionName: string;
         confirmLoading: boolean;
         visible: boolean;
-        okType: "link" | "default" | "dashed" | "primary" | "ghost" | "danger";
-    };
-    static propTypes: {
-        prefixCls: PropTypes.Requireable<string>;
-        onOk: PropTypes.Requireable<(...args: any[]) => any>;
-        onCancel: PropTypes.Requireable<(...args: any[]) => any>;
-        okText: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        cancelText: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        centered: PropTypes.Requireable<boolean>;
-        width: PropTypes.Requireable<string | number>;
-        confirmLoading: PropTypes.Requireable<boolean>;
-        visible: PropTypes.Requireable<boolean>;
-        footer: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        title: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        closable: PropTypes.Requireable<boolean>;
-        closeIcon: PropTypes.Requireable<PropTypes.ReactNodeLike>;
+        okType: "link" | "dashed" | "default" | "primary" | "ghost" | "danger";
     };
     handleCancel: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     handleOk: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     renderFooter: (locale: ModalLocale) => JSX.Element;
-    renderModal: ({ getPopupContainer: getContextPopupContainer, getPrefixCls, }: ConfigConsumerProps) => JSX.Element;
+    renderModal: ({ getPopupContainer: getContextPopupContainer, getPrefixCls, direction, }: ConfigConsumerProps) => JSX.Element;
     render(): JSX.Element;
 }
 export {};

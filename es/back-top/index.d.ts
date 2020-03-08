@@ -17,10 +17,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     constructor(props: BackTopProps);
     componentDidMount(): void;
     componentWillUnmount(): void;
-    setScrollTop(value: number): void;
-    getCurrentScrollTop: () => number;
     scrollToTop: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     handleScroll: () => void;
-    renderBackTop: ({ getPrefixCls }: ConfigConsumerProps) => JSX.Element;
+    renderBackTop: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element;
     render(): JSX.Element;
 }

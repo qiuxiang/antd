@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ConfigConsumerProps } from '../config-provider';
+import ErrorBoundary from './ErrorBoundary';
 export interface AlertProps {
     /**
      * Type of Alert styles, options:`success`, `info`, `warning`, `error`
@@ -14,12 +15,11 @@ export interface AlertProps {
     /** Additional content of Alert */
     description?: React.ReactNode;
     /** Callback when close Alert */
-    onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+    onClose?: React.MouseEventHandler<HTMLButtonElement>;
     /** Trigger when animation ending of Alert */
     afterClose?: () => void;
     /** Whether to show icon */
     showIcon?: boolean;
-    iconType?: string;
     style?: React.CSSProperties;
     prefixCls?: string;
     className?: string;
@@ -31,9 +31,13 @@ export interface AlertState {
     closed: boolean;
 }
 export default class Alert extends React.Component<AlertProps, AlertState> {
-    constructor(props: AlertProps);
-    handleClose: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+    static ErrorBoundary: typeof ErrorBoundary;
+    state: {
+        closing: boolean;
+        closed: boolean;
+    };
+    handleClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     animationEnd: () => void;
-    renderAlert: ({ getPrefixCls }: ConfigConsumerProps) => JSX.Element | null;
+    renderAlert: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element | null;
     render(): JSX.Element;
 }

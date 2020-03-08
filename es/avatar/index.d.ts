@@ -8,8 +8,8 @@ export interface AvatarProps {
     src?: string;
     /** Srcset of image avatar */
     srcSet?: string;
-    /** Type of the Icon to be used in avatar */
-    icon?: string;
+    /** icon to be used in avatar */
+    icon?: React.ReactNode;
     style?: React.CSSProperties;
     prefixCls?: string;
     className?: string;
@@ -19,15 +19,17 @@ export interface AvatarProps {
 }
 export interface AvatarState {
     scale: number;
+    mounted: boolean;
     isImgExist: boolean;
 }
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     static defaultProps: {
-        shape: "square" | "circle" | undefined;
-        size: number | "small" | "default" | "large" | undefined;
+        shape: "circle" | "square" | undefined;
+        size: number | "small" | "large" | "default" | undefined;
     };
     state: {
         scale: number;
+        mounted: boolean;
         isImgExist: boolean;
     };
     private avatarNode;

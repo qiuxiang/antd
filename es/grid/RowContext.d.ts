@@ -1,6 +1,6 @@
-import { Context } from '@ant-design/create-react-context';
+import { Context } from 'react';
 export interface RowContextState {
-    gutter?: number;
+    gutter?: [number, number];
 }
 declare const RowContext: Context<RowContextState>;
 export default RowContext;

@@ -1,10 +1,9 @@
-import { Context } from '@ant-design/create-react-context';
 import * as React from 'react';
 export interface SiderContextProps {
     siderCollapsed?: boolean;
     collapsedWidth?: string | number;
 }
-export declare const SiderContext: Context<SiderContextProps>;
+export declare const SiderContext: React.Context<SiderContextProps>;
 export declare type CollapseType = 'clickTrigger' | 'responsive';
 export declare type SiderTheme = 'light' | 'dark';
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -14,6 +13,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
     defaultCollapsed?: boolean;
     reverseArrow?: boolean;
     onCollapse?: (collapsed: boolean, type: CollapseType) => void;
+    zeroWidthTriggerStyle?: React.CSSProperties;
     trigger?: React.ReactNode;
     width?: number | string;
     collapsedWidth?: number | string;

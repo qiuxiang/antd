@@ -3,6 +3,7 @@ declare const _default: {
     Pagination: any;
     DatePicker: {
         lang: {
+            locale: string;
             placeholder: string;
             rangePlaceholder: string[];
             today: string;
@@ -41,6 +42,7 @@ declare const _default: {
     };
     Calendar: {
         lang: {
+            locale: string;
             placeholder: string;
             rangePlaceholder: string[];
             today: string;
@@ -100,6 +102,7 @@ declare const _default: {
         removeFile: string;
         uploadError: string;
         previewFile: string;
+        downloadFile: string;
     };
     Empty: {
         description: string;

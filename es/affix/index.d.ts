@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { ConfigConsumerProps } from '../config-provider';
-declare function getDefaultTarget(): Window | null;
+declare function getDefaultTarget(): (Window & typeof globalThis) | null;
 export interface AffixProps {
     /**
      * 距离窗口顶部达到指定偏移量后触发
      */
     offsetTop?: number;
-    offset?: number;
     /** 距离窗口底部达到指定偏移量后触发 */
     offsetBottom?: number;
     style?: React.CSSProperties;
@@ -16,6 +15,7 @@ export interface AffixProps {
     target?: () => Window | HTMLElement | null;
     prefixCls?: string;
     className?: string;
+    children: React.ReactElement;
 }
 declare enum AffixStatus {
     None = 0,

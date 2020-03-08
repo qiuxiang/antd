@@ -1,2 +1,2 @@
-declare var _default: "3.22.0";
+declare var _default: "4.0.1";
 export default _default;
