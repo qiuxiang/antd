@@ -4,9 +4,11 @@ import { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType } from './SizeContext';
+import { RequiredMark } from '../form/Form';
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 export declare const configConsumerProps: string[];
 export interface ConfigProviderProps {
+    getTargetContainer?: () => HTMLElement;
     getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
     prefixCls?: string;
     children?: React.ReactNode;
@@ -15,6 +17,10 @@ export interface ConfigProviderProps {
     autoInsertSpaceInButton?: boolean;
     form?: {
         validateMessages?: ValidateMessages;
+        requiredMark?: RequiredMark;
+    };
+    input?: {
+        autoComplete?: string;
     };
     locale?: Locale;
     pageHeader?: {
@@ -22,10 +28,13 @@ export interface ConfigProviderProps {
     };
     componentSize?: SizeType;
     direction?: 'ltr' | 'rtl';
+    space?: {
+        size?: SizeType | number;
+    };
+    virtual?: boolean;
+    dropdownMatchSelectWidth?: boolean;
 }
-declare class ConfigProvider extends React.Component<ConfigProviderProps> {
-    getPrefixCls: (suffixCls: string, customizePrefixCls?: string | undefined) => string;
-    renderProvider: (context: ConfigConsumerProps, legacyLocale: Locale) => JSX.Element;
-    render(): JSX.Element;
-}
+declare const ConfigProvider: React.FC<ConfigProviderProps> & {
+    ConfigContext: typeof ConfigContext;
+};
 export default ConfigProvider;

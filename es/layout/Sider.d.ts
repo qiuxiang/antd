@@ -1,7 +1,7 @@
 import * as React from 'react';
 export interface SiderContextProps {
     siderCollapsed?: boolean;
-    collapsedWidth?: string | number;
+    collapsedWidth?: number | string;
 }
 export declare const SiderContext: React.Context<SiderContextProps>;
 export declare type CollapseType = 'clickTrigger' | 'responsive';
@@ -24,7 +24,6 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface SiderState {
     collapsed?: boolean;
     below: boolean;
-    belowShow?: boolean;
 }
 export default class Sider extends React.Component {
     render(): JSX.Element;

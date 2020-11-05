@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import { Locale } from '.';
 export interface LocaleReceiverProps {
     componentName?: string;
     defaultLocale?: object | Function;
@@ -15,12 +15,13 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
     static defaultProps: {
         componentName: string;
     };
-    static contextTypes: {
-        antLocale: PropTypes.Requireable<object>;
-    };
-    context: LocaleReceiverContext;
+    static contextType: React.Context<(Partial<Locale> & {
+        exist?: boolean | undefined;
+    }) | undefined>;
     getLocale(): any;
     getLocaleCode(): any;
     render(): React.ReactNode;
 }
+declare type LocaleComponent = keyof Locale;
+export declare function useLocaleReceiver<T extends LocaleComponent>(componentName: T, defaultLocale?: Locale[T] | Function): [Locale[T]];
 export {};

@@ -20,9 +20,7 @@ export interface AbstractCheckboxProps<T> {
     children?: React.ReactNode;
     id?: string;
     autoFocus?: boolean;
-}
-export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
-    indeterminate?: boolean;
+    type?: string;
 }
 export interface CheckboxChangeEventTarget extends CheckboxProps {
     checked: boolean;
@@ -32,6 +30,9 @@ export interface CheckboxChangeEvent {
     stopPropagation: () => void;
     preventDefault: () => void;
     nativeEvent: MouseEvent;
+}
+export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
+    indeterminate?: boolean;
 }
 declare class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     static Group: typeof CheckboxGroup;
@@ -48,7 +49,7 @@ declare class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     saveCheckbox: (node: any) => void;
     focus(): void;
     blur(): void;
-    renderCheckbox: ({ getPrefixCls }: ConfigConsumerProps) => JSX.Element;
+    renderCheckbox: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element;
     render(): JSX.Element;
 }
 export default Checkbox;
