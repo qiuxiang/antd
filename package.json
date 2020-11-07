@@ -1,5 +1,5 @@
 {
-  "name": "antd",
+  "name": "rc-menu",
   "version": "4.8.0",
   "scripts": {
     "start": "copy 'node_modules/rc-menu/lib/**/*.d.ts' ."
