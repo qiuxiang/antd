@@ -1,8 +1,8 @@
 {
-  "name": "antd",
+  "name": "rc-motion",
   "version": "4.8.0",
   "scripts": {
-    "start": "copy 'node_modules/rc-menu/lib/**/*.d.ts' ."
+    "start": "copy 'node_modules/rc-motion/lib/**/*.d.ts' ."
   },
   "devDependencies": {
     "antd": "^4.8.0",

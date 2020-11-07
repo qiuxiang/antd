@@ -1,38 +1,18 @@
 /// <reference types="react" />
-export declare type RenderIconType = React.ReactNode | ((props: any) => React.ReactNode);
-export interface MenuInfo {
-    key: React.Key;
-    keyPath: React.Key[];
-    item: React.ReactInstance;
-    domEvent: React.MouseEvent<HTMLElement>;
-}
-export interface SelectInfo extends MenuInfo {
-    selectedKeys?: React.Key[];
-}
-export declare type SelectEventHandler = (info: SelectInfo) => void;
-export declare type HoverEventHandler = (info: {
-    key: React.Key;
-    hover: boolean;
-}) => void;
-export declare type MenuHoverEventHandler = (info: {
-    key: React.Key;
-    domEvent: React.MouseEvent<HTMLElement>;
-}) => void;
-export declare type MenuClickEventHandler = (info: MenuInfo) => void;
-export declare type DestroyEventHandler = (key: React.Key) => void;
-export declare type OpenEventHandler = (keys: React.Key[] | {
-    key: React.Key;
-    item: React.ReactInstance;
-    trigger: string;
-    open: boolean;
-}) => void;
-export declare type MenuMode = 'horizontal' | 'vertical' | 'vertical-left' | 'vertical-right' | 'inline';
-export declare type OpenAnimation = string | Record<string, any>;
-export interface MiniStore {
-    getState: () => any;
-    setState: (state: any) => void;
-    subscribe: (listener: () => void) => () => void;
-}
-export declare type LegacyFunctionRef = (node: React.ReactInstance) => void;
-export declare type BuiltinPlacements = Record<string, any>;
-export declare type TriggerSubMenuAction = 'click' | 'hover';
+export declare const STATUS_NONE: "none";
+export declare const STATUS_APPEAR: "appear";
+export declare const STATUS_ENTER: "enter";
+export declare const STATUS_LEAVE: "leave";
+export declare type MotionStatus = typeof STATUS_NONE | typeof STATUS_APPEAR | typeof STATUS_ENTER | typeof STATUS_LEAVE;
+export declare const STEP_NONE: "none";
+export declare const STEP_PREPARE: "prepare";
+export declare const STEP_START: "start";
+export declare const STEP_ACTIVE: "active";
+export declare const STEP_ACTIVATED: "end";
+export declare type StepStatus = typeof STEP_NONE | typeof STEP_PREPARE | typeof STEP_START | typeof STEP_ACTIVE | typeof STEP_ACTIVATED;
+export declare type MotionEvent = (TransitionEvent | AnimationEvent) & {
+    deadline?: boolean;
+};
+export declare type MotionPrepareEventHandler = (element: HTMLElement) => Promise<any> | void;
+export declare type MotionEventHandler = (element: HTMLElement, event: MotionEvent) => React.CSSProperties | void;
+export declare type MotionEndEventHandler = (element: HTMLElement, event: MotionEvent) => boolean | void;
