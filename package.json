@@ -1,9 +1,8 @@
 {
   "name": "antd",
-  "version": "0.0.1",
-  "typings": "lib/index.d.ts",
+  "version": "4.8.0",
   "scripts": {
-    "build": "copy 'node_modules/antd/**/*.d.ts' ."
+    "start": "copy 'node_modules/antd/lib/**/*.d.ts' ."
   },
   "devDependencies": {
     "antd": "^4.8.0",
