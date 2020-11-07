@@ -2,7 +2,7 @@
   "name": "antd",
   "version": "4.8.0",
   "scripts": {
-    "start": "copy 'node_modules/antd/lib/**/*.d.ts' ."
+    "start": "copy 'node_modules/rc-menu/lib/**/*.d.ts' ."
   },
   "devDependencies": {
     "antd": "^4.8.0",
